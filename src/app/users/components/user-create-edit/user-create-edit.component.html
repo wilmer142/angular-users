@@ -1,0 +1,28 @@
+  <mat-form-field appearance="fill">
+    <mat-label>Usuario</mat-label>
+    <input [(ngModel)]="data.user.user" matInput required [disabled]="data.action === userActionEnum.Detail">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input [(ngModel)]="data.user.email" matInput required [disabled]="data.action === userActionEnum.Detail">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Nombres</mat-label>
+    <input [(ngModel)]="data.user.names" matInput required [disabled]="data.action === userActionEnum.Detail">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Apellidos</mat-label>
+    <input [(ngModel)]="data.user.surnames" matInput required [disabled]="data.action === userActionEnum.Detail">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Estado</mat-label>
+    <mat-select [(ngModel)]="data.user.isActive" [disabled]="data.action === userActionEnum.Detail">
+      <mat-option [value]="true">Activo</mat-option>
+      <mat-option [value]="false">Inactivo</mat-option>
+
+    </mat-select>
+  </mat-form-field>
+  <div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial *ngIf="data.action !== userActionEnum.Detail">Guardar</button>
+    <button mat-button (click)="onNoClick()">Cerrar</button>
+  </div>
